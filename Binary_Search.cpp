@@ -6,6 +6,7 @@
 */
 #include <iostream>
 #include <string>
+#include <iomanip>
 using namespace std;
 
 //Create an array of size 10, starting with 0; the array will hold 9 values.  The High value of this array
@@ -94,10 +95,17 @@ void Check()
 /**********************************************************************************************************************************************/
 int main()
 {
+	clock_t start, end;
+	start = clock();
+
 	DisplayArray();
 	GetUserName();
 	GetUserValue();
 	Resault = SearchForValue(MyArray, 8, UsersValue);
 	Check();
+
+	end = clock();
+	double time_taken = double(end - start) / double(CLOCKS_PER_SEC);
+	cout << "Execution time was: " << fixed << time_taken << setprecision(5) << " in SECONDS. "  << endl << endl;
 }
 
